@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Road I Traveled for THEM — A Covenant of Return</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Alex+Brush&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void:       #0A0908;
+    --void-2:     #12100E;
+    --shadow:     #1A1614;
+    --bone:       #F0E6D2;
+    --bone-soft:  #C9BEA9;
+    --bone-dim:   #7A7266;
+    --brass:      #C8A464;
+    --brass-hi:   #E4C688;
+    --brass-lo:   #8A6F3D;
+    --blood:      #8B2820;
+    --rust:       #B45438;
+    --hairline:   rgba(200, 164, 100, 0.18);
+    --hairline-hi: rgba(200, 164, 100, 0.32);
+    --panel:      rgba(240, 230, 210, 0.03);
+    --panel-hi:   rgba(240, 230, 210, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 20px 0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .stage {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    margin-bottom: 40px;
+    background: linear-gradient(180deg, rgba(200,164,100,0.05), rgba(200,164,100,0.01));
+    backdrop-filter: blur(10px);
+  }
+
+  .masthead .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .masthead .brand .fraction {
+    font-style: italic;
+    color: var(--brass-hi);
+  }
+
+  .masthead .brand .divider {
+    color: var(--bone-dim);
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  .masthead .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    padding: 110px 40px 90px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(200,164,100,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(139,40,32,0.08) 0%, transparent 55%);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    margin-bottom: 60px;
+    overflow: hidden;
+  }
+
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--brass);
+    opacity: 0.7;
+  }
+  .hero::before {
+    top: 14px; left: 14px;
+    border-right: none; border-bottom: none;
+  }
+  .hero::after {
+    bottom: 14px; right: 14px;
+    border-left: none; border-top: none;
+  }
+
+  .hero-corners-2 {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .hero-corners-2::before, .hero-corners-2::after {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--brass);
+    opacity: 0.7;
+  }
+  .hero-corners-2::before {
+    top: 14px; right: 14px;
+    border-left: none; border-bottom: none;
+  }
+  .hero-corners-2::after {
+    bottom: 14px; left: 14px;
+    border-right: none; border-top: none;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.44em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    width: 44px;
+    height: 1px;
+    background: var(--brass);
+    opacity: 0.5;
+  }
+
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 88px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--bone);
+    margin-bottom: 8px;
+  }
+
+  h1.title .them {
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+
+  h1.title .the-road {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bone-soft);
+    font-size: 42px;
+    display: block;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 1.55;
+    color: var(--bone-soft);
+    max-width: 620px;
+    margin: 32px auto 0;
+  }
+
+  .subtitle .accent {
+    color: var(--brass);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .tagline {
+    margin-top: 40px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.36em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+  }
+
+  .tagline .dot {
+    color: var(--brass);
+    margin: 0 12px;
+  }
+
+  /* ============ PROLOGUE ============ */
+  .prologue {
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .prologue .heading {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 24px;
+  }
+
+  .prologue p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--bone-soft);
+    margin-bottom: 20px;
+  }
+
+  .prologue p em {
+    font-weight: 500;
+    color: var(--brass-hi);
+    font-style: italic;
+  }
+
+  .prologue p:last-child { margin-bottom: 0; }
+
+  /* ============ SECTION LABEL ============ */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 80px 0 40px;
+  }
+  .section-label .num {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--brass);
+    white-space: nowrap;
+  }
+  .section-label .txt {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--bone);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .section-label .txt em {
+    color: var(--brass);
+    font-weight: 500;
+  }
+  .section-label .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--hairline-hi), transparent);
+  }
+
+  /* ============ PATH CARDS ============ */
+  .paths {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .path {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 38px 40px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 34px;
+    position: relative;
+    transition: all 0.35s ease;
+    backdrop-filter: blur(20px);
+  }
+
+  .path:hover {
+    background: var(--panel-hi);
+    border-color: var(--hairline-hi);
+    transform: translateX(3px);
+    box-shadow: 0 20px 60px rgba(200, 164, 100, 0.08);
+  }
+
+  .path .index-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .path .index {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 68px;
+    line-height: 0.8;
+    color: var(--brass);
+    letter-spacing: -0.04em;
+  }
+
+  .path .roman {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--bone-dim);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--hairline);
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  .path .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--brass);
+    border-radius: 100px;
+    color: var(--brass);
+    white-space: nowrap;
+    margin-top: 6px;
+  }
+
+  .path .badge.sacred {
+    background: rgba(139, 40, 32, 0.18);
+    border-color: var(--blood);
+    color: #F0A090;
+  }
+
+  .path .body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .path .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .path .location {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--brass);
+    text-transform: uppercase;
+  }
+
+  .path .name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.05;
+    color: var(--bone);
+    letter-spacing: -0.02em;
+    margin: 2px 0 6px;
+  }
+
+  .path .name em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--brass-hi);
+  }
+
+  .path .description {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--bone-soft);
+    max-width: 640px;
+  }
+
+  .path .description em {
+    color: var(--brass-hi);
+    font-weight: 400;
+  }
+
+  /* Detail block */
+  .path .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+    margin-top: 12px;
+    padding: 20px 0 4px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .path .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .path .detail .k {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+  }
+  .path .detail .v {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--bone);
+  }
+  .path .detail .v em {
+    color: var(--brass);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Metrics strip */
+  .path .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding-top: 16px;
+    margin-top: 4px;
+    border-top: 1px solid var(--hairline);
+  }
+  .path .metric .k {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .path .metric .v {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--bone);
+  }
+  .path .metric .v em {
+    font-style: italic;
+    color: var(--brass);
+  }
+
+  /* ============ ORDER OF WALKING ============ */
+  .order {
+    margin: 90px 0 60px;
+    padding: 44px 44px 40px;
+    background:
+      linear-gradient(135deg, rgba(200,164,100,0.05) 0%, rgba(200,164,100,0.01) 100%);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+  }
+
+  .order-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .order-step {
+    position: relative;
+    padding-left: 24px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  .order-step::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 1px;
+    height: 40px;
+    background: var(--brass);
+  }
+
+  .order-step .step-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    color: var(--brass);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .order-step .step-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--bone);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .order-step p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--bone-soft);
+  }
+
+  .order-step p em {
+    color: var(--brass-hi);
+    font-weight: 400;
+  }
+
+  /* ============ WHAT TO CARRY ============ */
+  .carry {
+    margin: 60px 0;
+    padding: 44px 44px 36px;
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    background: var(--panel);
+    backdrop-filter: blur(20px);
+  }
+
+  .carry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    margin-top: 26px;
+  }
+
+  .carry-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .carry-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .carry-item .icon {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--brass);
+    line-height: 1;
+    padding-top: 2px;
+    font-style: italic;
+    min-width: 20px;
+  }
+
+  .carry-item .content {
+    flex: 1;
+  }
+
+  .carry-item .title-t {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bone);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .carry-item p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--bone-soft);
+    line-height: 1.5;
+  }
+
+  /* ============ COVENANT ============ */
+  .covenant {
+    margin: 90px 0 40px;
+    padding: 60px 50px;
+    background:
+      radial-gradient(ellipse at center, rgba(139, 40, 32, 0.12) 0%, transparent 70%),
+      linear-gradient(135deg, rgba(200, 164, 100, 0.06) 0%, rgba(200, 164, 100, 0.02) 100%);
+    border: 1px solid var(--hairline-hi);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .covenant::before {
+    content: '"';
+    position: absolute;
+    top: -60px;
+    left: 40px;
+    font-family: 'Fraunces', serif;
+    font-size: 260px;
+    color: var(--brass);
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .covenant::after {
+    content: '"';
+    position: absolute;
+    bottom: -140px;
+    right: 40px;
+    font-family: 'Fraunces', serif;
+    font-size: 260px;
+    color: var(--brass);
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .covenant .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .covenant .text {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--bone);
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    letter-spacing: -0.01em;
+  }
+
+  .covenant .text em {
+    color: var(--brass-hi);
+    font-weight: 500;
+  }
+
+  .covenant .attr {
+    margin-top: 32px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.36em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* ============ SIGNATURE BLOCK ============ */
+  .sign-off {
+    margin-top: 80px;
+    padding: 60px 40px 44px;
+    border-top: 1px solid var(--hairline);
+    text-align: center;
+    position: relative;
+  }
+
+  .sign-off::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--brass);
+  }
+
+  .sign-off .ordinal {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.42em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .sign-off .signature {
+    font-family: 'Alex Brush', cursive;
+    font-size: 92px;
+    color: var(--brass-hi);
+    line-height: 1;
+    margin-bottom: 14px;
+    text-shadow: 0 0 40px rgba(228, 198, 136, 0.25);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+
+  .sign-off .name {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.38em;
+    color: var(--bone);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .sign-off .brand-line {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--brass);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .sign-off .brand-line .fraction {
+    font-weight: 500;
+  }
+
+  .sign-off .footer-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+  }
+
+  .sign-off .footer-line .dot {
+    color: var(--brass);
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero, .path, .covenant, .sign-off, .order, .carry, .prologue {
+    animation: fadeUp 0.8s ease backwards;
+  }
+
+  .path:nth-child(1) { animation-delay: 0.05s; }
+  .path:nth-child(2) { animation-delay: 0.10s; }
+  .path:nth-child(3) { animation-delay: 0.15s; }
+  .path:nth-child(4) { animation-delay: 0.20s; }
+  .path:nth-child(5) { animation-delay: 0.25s; }
+  .path:nth-child(6) { animation-delay: 0.30s; }
+  .path:nth-child(7) { animation-delay: 0.35s; }
+  .path:nth-child(8) { animation-delay: 0.40s; }
+  .path:nth-child(9) { animation-delay: 0.45s; }
+  .path:nth-child(10) { animation-delay: 0.50s; }
+  .path:nth-child(11) { animation-delay: 0.55s; }
+  .path:nth-child(12) { animation-delay: 0.60s; }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 720px) {
+    .stage { padding: 0 14px; }
+    .masthead { padding: 10px 16px; border-radius: 6px; flex-direction: column; gap: 8px; }
+    .hero { padding: 60px 22px 50px; }
+    h1.title { font-size: 46px; }
+    h1.title .the-road { font-size: 22px; }
+    .subtitle { font-size: 16px; }
+    .prologue p { font-size: 16px; }
+    .path {
+      grid-template-columns: 1fr;
+      padding: 26px 22px;
+      gap: 18px;
+    }
+    .path .index-col {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+    .path .roman { border-top: none; padding-top: 0; width: auto; padding-left: 16px; border-left: 1px solid var(--hairline); }
+    .path .name { font-size: 24px; }
+    .path .details { grid-template-columns: 1fr; gap: 14px; }
+    .path .metrics { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .order-grid { grid-template-columns: 1fr; gap: 26px; }
+    .carry-grid { grid-template-columns: 1fr; gap: 8px; }
+    .carry-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--hairline); }
+    .carry-item:last-child { border-bottom: none; }
+    .covenant { padding: 40px 24px; }
+    .covenant .text { font-size: 19px; }
+    .order, .carry { padding: 32px 24px; }
+    .sign-off .signature { font-size: 60px; }
+    .sign-off .footer-line { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- ============ MASTHEAD ============ -->
+  <div class="masthead">
+    <div class="brand">
+      <span class="fraction">½</span>
+      <span>MAN</span>
+      <span class="divider">·</span>
+      <span class="fraction">½</span>
+      <span>AMAZING</span>
+    </div>
+    <div class="kicker">A Covenant of Return</div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="hero-corners-2"></div>
+    <div class="eyebrow">A Personal Declaration</div>
+    <h1 class="title">
+      <span class="the-road">The Road I Traveled</span>
+      for <span class="them">THEM</span>
+    </h1>
+    <p class="subtitle">Twelve sacred paths across three continents. Ground where our ancestors were marched, sold, held, and shipped. <span class="accent">I am going to walk all of it.</span> Not as a tourist. As a descendant. As a witness. As a return.</p>
+    <div class="tagline">
+      <span>Witness</span>
+      <span class="dot">◆</span>
+      <span>Trace</span>
+      <span class="dot">◆</span>
+      <span>Honor</span>
+      <span class="dot">◆</span>
+      <span>Return</span>
+    </div>
+  </div>
+
+  <!-- ============ PROLOGUE ============ -->
+  <div class="prologue">
+    <div class="heading">— The Reason for the Walk —</div>
+    <p>My ancestors did not walk those paths by choice. They were chained, they were driven, they were counted, they were sold. Most never saw home again. Almost none of them had a descendant who could ever come back.</p>
+    <p>I am the descendant who <em>can</em> come back.</p>
+    <p>To walk where they walked is the smallest thing I can offer them. It is a promise made with feet: <em>your steps are not the last steps on this ground</em>.</p>
+  </div>
+
+  <!-- ============ SECTION 1: THE PATHS ============ -->
+  <div class="section-label">
+    <span class="num">§ 01</span>
+    <span class="txt">The <em>Twelve Sacred Paths</em></span>
+    <span class="line"></span>
+  </div>
+
+  <div class="paths">
+
+    <!-- 01. OUIDAH -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">01</div>
+        <div class="roman">— i —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Ouidah · Benin · West Africa</div>
+        </div>
+        <div class="name">The <em>Route des Esclaves</em></div>
+        <div class="description">The most emotionally significant walkable path in the entire diaspora. Four kilometers of red dirt from the auction site at Place Chacha, past the <em>Tree of Forgetfulness</em> where captives were made to circle nine times to lose their identity, through the Zomaï dungeon of total darkness, past the Well of Return, ending at the Door of No Return sculpture on the Atlantic — the exact ground where they were marched into the sea.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The red dust doesn't leave your shoes. The memorial sculptures at each station rise like witnesses. The last hundred meters to the door are silent even when the group is large.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Vodun is the living spiritual tradition here. Respect ceremonies you may encounter — do not photograph without asking. Local guides are custodians of the story.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">4.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">2–3 <em>hrs</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Dirt · Sand</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Nov–Feb</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02. GORÉE -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">02</div>
+        <div class="roman">— ii —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Gorée Island · Senegal · West Africa</div>
+        </div>
+        <div class="name">The <em>Maison des Esclaves</em> Passage</div>
+        <div class="description">Short but heavy. From the ferry dock, the walking path climbs the colonial streets to the pink walls of the Maison des Esclaves, then descends through the holding cells — men, women, and children each in their own hold — through the narrow corridor to the door framed by ocean. The doorway was <em>deliberately sized to inflict indignity on those forced through it</em>. Pilgrims often leave water at the threshold.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The cells retain the cold of centuries. The doorway to the sea is the smallest, brightest opening you have ever walked toward.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The island is a living community, not just a memorial. Stay for a night if you can — the last ferry leaves at 6:30pm and the island returns to itself.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">1.5 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Half <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Cobble · Hills</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Nov–Feb</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03. CAPE COAST + ELMINA -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">03</div>
+        <div class="roman">— iii —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Cape Coast &amp; Elmina · Ghana · Gold Coast</div>
+        </div>
+        <div class="name">The <em>Dungeon-to-Door</em> Tunnel</div>
+        <div class="description">Not a long walk, but the shortest that matters most. From the underground male and female dungeons of Cape Coast Castle — where the floors are still stained where waste and blood pooled — the passage narrows into the tunnel that ends at the Door of No Return facing the Atlantic. Elmina, fifteen minutes down the coast, offers the same passage: <em>the oldest European building south of the Sahara</em>, built by the Portuguese in 1482, with a church constructed directly above the dungeons.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The dungeon floors are said to still smell after five hundred years. In August during PANAFEST and Emancipation Day, the coast fills with diaspora returnees. Both castles are done together.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The castle guides are Ghanaian historians who have been telling this story their whole lives. Tip generously — this is heritage labor.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">~200 <em>m</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Full <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Stone · Tunnel</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Nov–Mar</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04. BADAGRY -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">04</div>
+        <div class="roman">— iv —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Badagry · Nigeria · West Africa</div>
+        </div>
+        <div class="name">The <em>Point of No Return</em> Walk</div>
+        <div class="description">From the Slave Relics Museum in Badagry town, a canoe crosses the lagoon to Gberefu Island. From the shore, a marked path leads through beach scrub past the <em>Spirit Attenuation Well</em> — where captives were forced to drink water meant to erase their memory of home before boarding — to the twin poles marking the boarding point on the Atlantic beach.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The lagoon crossing takes only minutes but changes the temperature of everything. The Well is disturbingly ordinary. The twin poles on the beach face nothing but water.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The Mobee family has custodial responsibility for the Slave Relics Museum — they are descendants of the traders. History here is uncomfortable but essential.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">2.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Half <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Sand · Boat</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Nov–Mar</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05. KUNTA KINTEH -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">05</div>
+        <div class="roman">— v —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Kunta Kinteh Island · Gambia · Senegambia</div>
+        </div>
+        <div class="name">The <em>Fort Ruins</em> Circuit</div>
+        <div class="description">Named for Alex Haley's ancestor from <em>Roots</em>, this small, shrinking island in the Gambia River holds the ruins of James Fort — where British traders held captives before the ocean crossing. The walk is short: around the perimeter of what remains. Across the river at Albreda village, the Slavery Museum completes the story.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The island is literally being reclaimed by the sea — most of the original fort is already underwater. There is a rawness here that curated sites cannot match.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Diaspora returnee ceremonies are held here, especially around the Roots Homecoming Festival. Some pilgrims pour libations at the water's edge.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">1.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Full <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Ruins · Boat</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Nov–Mar</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06. STONE TOWN -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">06</div>
+        <div class="roman">— vi —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Stone Town · Zanzibar · East Africa</div>
+        </div>
+        <div class="name">The <em>Anglican Cathedral</em> Passage</div>
+        <div class="description">Beginning at the Old Slave Market — now the Anglican Cathedral <em>built directly over the auction block</em>, with the whipping post preserved beneath the altar — the guided walk descends into a surviving underground holding cell where captives waited in the dark, then through Stone Town's narrow lanes to the harbor from which East African captives were shipped to Arabia, India, and the Americas. The <em>Memory for the Slaves</em> sculpture in the courtyard shows five figures in chains below ground level.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The cathedral built on the market floor is one of the most direct architectural statements of atonement anywhere in the world. The chains in the sculpture are the original ones.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Zanzibar is majority Muslim. Dress modestly in Stone Town, especially at the sacred sites. Fridays affect opening hours.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">2.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Half <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Urban · Alley</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Jun–Oct</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07. BAGAMOYO -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">07</div>
+        <div class="roman">— vii —</div>
+        <div class="badge">Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Bagamoyo · Tanzania · East African Coast</div>
+        </div>
+        <div class="name">The <em>Lay Down Your Heart</em> Terminus</div>
+        <div class="description">The town's Swahili name means <em>lay down your heart</em> — captives from the interior reached this place and understood they would never return. The walk covers the terminus of the East African caravan slave routes: the Old Fort, the Caravan Serai Museum, ruins of the trading post, and finally the beach where captives were rowed to Zanzibar for auction. The East African slave trade is the one most descendants never learn about.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">Bagamoyo is quieter than Stone Town — the ruins are less interpreted, more atmospheric. The name itself does the emotional work.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The town is close to Dar es Salaam (75 km) but tourism infrastructure is thin. Hire a knowledgeable guide from Dar.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">3.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Full <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Ruins · Beach</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Jun–Oct</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08. LE MORNE -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">08</div>
+        <div class="roman">— viii —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Le Morne · Mauritius · Indian Ocean</div>
+        </div>
+        <div class="name">The <em>Maroon Mountain</em> Climb</div>
+        <div class="description">A basalt monolith rising from the sea, Le Morne became a maroon stronghold — escaped enslaved Africans lived and defended themselves from the peak. Legend holds that when soldiers came in 1835 to tell them abolition had been declared, they <em>believed the soldiers had come to recapture them, and jumped from the cliffs</em> rather than return to slavery. The hiking trail to the summit passes through the terrain of resistance.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">This is the only site on the list where the primary heritage is not tragedy but refusal. The Slave Route Monument at the base names the maroons individually.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The trail is moderate but real — proper shoes needed. February 1 is Abolition Day and drives ceremonies at the base.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">7.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">4–5 <em>hrs</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Mountain</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>May–Dec</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09. SULLIVAN'S ISLAND -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">09</div>
+        <div class="roman">— ix —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Sullivan's Island · Charleston · South Carolina</div>
+        </div>
+        <div class="name">The <em>Ellis Island of Black America</em> Beach</div>
+        <div class="description">Approximately <em>forty percent of all enslaved Africans who arrived in North America first stepped onto this island</em> — the quarantine station for the port of Charleston. Toni Morrison placed a memorial bench of remembrance here specifically because there was, until recently, nothing to mark the arrival. The walk is along the beach, ending at Fort Moultrie. The International African American Museum in Charleston, built on Gadsden's Wharf, is the companion visit.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The Toni Morrison bench faces the water. Sit on it. This is the entry point for the ancestors of nearly every African American reading these words.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Sullivan's Island is now a wealthy, predominantly white beach community. The memorial exists because of insistent work by Black Charlestonians.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">3.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Half <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Beach · Boardwalk</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Mar–May · Oct–Nov</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. WHITNEY PLANTATION -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">10</div>
+        <div class="roman">— x —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Whitney Plantation · Wallace · Louisiana</div>
+        </div>
+        <div class="name">The <em>Wall of Honor</em> Walk</div>
+        <div class="description">The only major U.S. plantation museum told entirely <em>from the perspective of the enslaved</em>. The walking tour passes the Wall of Honor listing the names of every enslaved person known to have lived on Whitney, the Field of Angels memorial to the 2,200 enslaved Louisiana children who died before their third birthday, the preserved slave cabins, and finally — almost as an afterthought — the big house.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The names on the Wall are the point. Read them. The Field of Angels is a heavy stop — sit if you need to. This is the walk that changes American descendants.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Whitney is roughly one hour from New Orleans. Pair with Laura Plantation for Creole context. Never do more than one plantation in a day.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">1.5 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">3+ <em>hrs</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Path · Grass</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Oct–Apr</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. RICHMOND -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">11</div>
+        <div class="roman">— xi —</div>
+        <div class="badge">Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Richmond · Virginia · James River</div>
+        </div>
+        <div class="name">The <em>Historic Slave Trail</em></div>
+        <div class="description">An interpreted 1.3-mile trail along the James River tracing the route from the Manchester Docks — where captives were unloaded from ships — to the site of <em>Lumpkin's Jail</em>, one of the largest slave-trading complexes in the antebellum South. Seventeen marked stations along the way. Richmond was the largest slave-trading city on the eastern seaboard by the 1850s.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">The Reconciliation Statue at Manchester Docks is one of three linked sculptures — with Liverpool and Benin — completing the trade triangle.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">The trail is walkable self-guided but the Black History Museum of Virginia offers interpreted tours — take one if you can.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">2.1 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">1.5–2 <em>hrs</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Path · Riverside</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Apr–Jun · Sep–Nov</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. RIO -->
+    <div class="path">
+      <div class="index-col">
+        <div class="index">12</div>
+        <div class="roman">— xii —</div>
+        <div class="badge sacred">Very Sacred</div>
+      </div>
+      <div class="body">
+        <div class="head-row">
+          <div class="location">Rio de Janeiro · Brazil · Little Africa</div>
+        </div>
+        <div class="name">The <em>Circuito da Herança Africana</em></div>
+        <div class="description">The UNESCO-recognized walking circuit through the largest disembarkation point in the entire Americas. <em>Up to one million enslaved Africans first stepped onto American soil at the Valongo Wharf</em>. The walk passes the Wharf archaeological site, the Pretos Novos Cemetery — where bone fragments of Africans who died within days of arrival are preserved in situ — and Pedra do Sal, the rock that was both a slave market and, later, the birthplace of samba. The most complete urban heritage walk in the Americas.</div>
+        <div class="details">
+          <div class="detail">
+            <span class="k">What You Feel</span>
+            <span class="v">Brazil received nearly half of the entire transatlantic trade — more than every other American destination combined. This walk makes that scale visible.</span>
+          </div>
+          <div class="detail">
+            <span class="k">Cultural Note</span>
+            <span class="v">Do this walk with an Afro-Brazilian guide. The Pretos Novos site is small and easy to miss without one. Rio's Little Africa deserves at least a full day.</span>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="k">Distance</span><span class="v">3.0 <em>km</em></span></div>
+          <div class="metric"><span class="k">Duration</span><span class="v">Half <em>day</em></span></div>
+          <div class="metric"><span class="k">Terrain</span><span class="v"><em>Urban · Cobble</em></span></div>
+          <div class="metric"><span class="k">Best Season</span><span class="v"><em>Apr–Oct</em></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 2: ORDER OF WALKING ============ -->
+  <div class="section-label">
+    <span class="num">§ 02</span>
+    <span class="txt">The <em>Order of Walking</em></span>
+    <span class="line"></span>
+  </div>
+
+  <div class="order">
+    <div style="text-align:center; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 17px; color: var(--bone-soft); max-width: 560px; margin: 0 auto; line-height: 1.5;">
+      These twelve are not stops on a single trip. They are twelve pilgrimages, spread across years. This is the order that has meaning.
+    </div>
+
+    <div class="order-grid">
+
+      <div class="order-step">
+        <div class="step-num">First — The Arrival</div>
+        <div class="step-title">Begin in the Americas</div>
+        <p>Start where <em>you</em> arrived. Whitney. Sullivan's Island. Richmond. Rio. The ground of your own family. This is the personal foundation. Do not start in Africa.</p>
+      </div>
+
+      <div class="order-step">
+        <div class="step-num">Then — The East</div>
+        <div class="step-title">The Indian Ocean Trade</div>
+        <p>Zanzibar, Bagamoyo, Le Morne. Before you complete the story, understand that it was <em>two stories</em>. The eastward trade is the one most descendants never learn.</p>
+      </div>
+
+      <div class="order-step">
+        <div class="step-num">Finally — The Origin</div>
+        <div class="step-title">Return to West Africa</div>
+        <p>Save the Doors of No Return for last. Ouidah, Gorée, Cape Coast, Elmina, Kunta Kinteh, Badagry. When you walk through those doors <em>the wrong way</em>, you have earned it.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ SECTION 3: WHAT TO CARRY ============ -->
+  <div class="section-label">
+    <span class="num">§ 03</span>
+    <span class="txt">What to <em>Carry</em></span>
+    <span class="line"></span>
+  </div>
+
+  <div class="carry">
+    <div style="text-align:center; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 17px; color: var(--bone-soft); max-width: 540px; margin: 0 auto; line-height: 1.5;">
+      Physical preparation matters. Spiritual preparation matters more.
+    </div>
+
+    <div class="carry-grid">
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">Water — literal and symbolic</div>
+          <p>For heat. For libation. Many pilgrims pour water at Doors of No Return. Bring a small bottle designated for this purpose.</p>
+        </div>
+      </div>
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">Something white to wear</div>
+          <p>In many West African and Afro-Diasporic traditions, white is worn on sacred ground. A simple linen shirt or wrap is appropriate.</p>
+        </div>
+      </div>
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">Your family names</div>
+          <p>Bring a written list. Ancestor names. Family members alive and dead. Read them silently — or aloud — at the water's edge.</p>
+        </div>
+      </div>
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">A notebook, not just a phone</div>
+          <p>Some moments will not survive a screen. Write down what you feel while you feel it. Photographs will fail this task.</p>
+        </div>
+      </div>
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">Cash for the guides</div>
+          <p>Local historians, boat operators, and cultural custodians are doing heritage labor. Tip generously in local currency.</p>
+        </div>
+      </div>
+
+      <div class="carry-item">
+        <div class="icon">◆</div>
+        <div class="content">
+          <div class="title-t">Rest days on the calendar</div>
+          <p>Do not chain Very Sacred sites back-to-back. Build in beach days, quiet days, moments of ordinary joy. Recovery is part of the walk.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ COVENANT ============ -->
+  <div class="covenant">
+    <div class="label">— The Covenant —</div>
+    <p class="text">To walk where they walked is not tourism. It is <em>witness</em>. It is the small, quiet act of a descendant showing up on the exact ground his ancestors were driven across — and saying, with feet instead of words, <em>you are not forgotten. You are not the last footprints on this soil. I am here because you were here first.</em></p>
+    <div class="attr">— A Traveler's Vow —</div>
+  </div>
+
+  <!-- ============ SIGN-OFF ============ -->
+  <div class="sign-off">
+    <div class="ordinal">Traced &amp; Curated By</div>
+
+    <div class="signature">Anthony Durham</div>
+
+    <div class="name">Anthony Durham</div>
+    <div class="brand-line">
+      <span class="fraction">½</span> Man ·
+      <span class="fraction">½</span> Amazing
+    </div>
+
+    <div class="footer-line">
+      <span>Heritage Vol. I</span>
+      <span class="dot">◆</span>
+      <span>The Road I Traveled for THEM</span>
+      <span class="dot">◆</span>
+      <span>Compiled 2026</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
